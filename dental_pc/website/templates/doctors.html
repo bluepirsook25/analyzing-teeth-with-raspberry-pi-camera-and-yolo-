@@ -1,0 +1,42 @@
+@'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Choose a Dentist</title>
+  <style>
+    body{font-family:sans-serif;background:#f0f4f8;padding:40px 20px}
+    h1{text-align:center;color:#1a1a2e;margin-bottom:8px}
+    p{text-align:center;color:#888;margin-bottom:32px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:900px;margin:0 auto}
+    .card{background:#fff;border-radius:14px;padding:28px 20px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+    .avatar{font-size:48px;margin-bottom:10px}
+    h2{font-size:16px;margin-bottom:4px;color:#1a1a2e}
+    .spec{font-size:12px;color:#2196f3;font-weight:600;margin-bottom:16px}
+    input[type=datetime-local]{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:13px;margin-bottom:10px;box-sizing:border-box}
+    button{width:100%;padding:11px;background:#2196f3;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:14px}
+    button:hover{background:#1769aa}
+    .logout{text-align:center;margin-top:28px}<a href="/logout" style="color:#aaa;font-size:13px;text-decoration:none">Logout</a>
+  </style>
+</head>
+<body>
+  <h1>🦷 Choose Your Dentist</h1>
+  <p>Select a doctor and pick a date & time</p>
+  <div class="grid">
+    {% for name, spec, icon in [("Dr. Sarah Smith","General Dentistry","👩‍⚕️"),("Dr. James Lee","Orthodontics","👨‍⚕️"),("Dr. Maria Rossi","Teeth Whitening","👩‍⚕️"),("Dr. Ahmed Khan","Oral Surgery","👨‍⚕️")] %}
+    <div class="card">
+      <div class="avatar">{{ icon }}</div>
+      <h2>{{ name }}</h2>
+      <div class="spec">{{ spec }}</div>
+      <form method="POST" action="/book">
+        <input type="hidden" name="dentist" value="{{ name }}"/>
+        <input type="datetime-local" name="date" required/>
+        <button type="submit">Book Appointment</button>
+      </form>
+    </div>
+    {% endfor %}
+  </div>
+  <div style="text-align:center;margin-top:28px"><a href="/logout" style="color:#aaa;font-size:13px">Logout</a></div>
+</body>
+</html>
+'@ | Out-File -FilePath website\templates\doctors.html -Encoding utf8

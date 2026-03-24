@@ -1,0 +1,30 @@
+@'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Confirmed</title>
+  <style>
+    body{font-family:sans-serif;background:#1a1a2e;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0}
+    .card{background:#fff;border-radius:16px;padding:48px 40px;max-width:400px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+    h1{font-size:22px;color:#1a1a2e;margin-bottom:10px}
+    .info{background:#f0f7ff;border-radius:10px;padding:18px;margin:24px 0;font-size:14px;line-height:1.8;color:#333}
+    .info strong{color:#2196f3}
+    a{display:inline-block;padding:12px 28px;background:#2196f3;color:#fff;text-decoration:none;border-radius:8px;font-size:14px}
+    a:hover{background:#1769aa}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div style="font-size:64px">✅</div>
+    <h1>Appointment Confirmed!</h1>
+    <div class="info">
+      <strong>Doctor:</strong> {{ dentist }}<br/>
+      <strong>Date & Time:</strong> {{ date }}<br/>
+      <strong>Status:</strong> Saved to database
+    </div>
+    <a href="/dentists">Book Another</a>
+  </div>
+</body>
+</html>
+'@ | Out-File -FilePath website\templates\confirmation.html -Encoding utf8

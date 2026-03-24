@@ -1,0 +1,14 @@
+# Dental PC – Python dependencies
+# Install with:  pip install -r requirements.txt
+
+ultralytics        # YOLOv8 (includes torch)
+pillow             # PIL – image I/O and annotation (replaces OpenCV)
+numpy              # histogram maths
+paramiko           # SSH + SFTP to Raspberry Pi
+flask              # booking website
+pymysql            # MySQL client
+pyttsx3            # offline text-to-speech
+python-dotenv      # .env loading
+ics                # .ics calendar file writer
+selenium           # optional browser automation
+webdriver-manager  # auto-downloads chromedriver for selenium

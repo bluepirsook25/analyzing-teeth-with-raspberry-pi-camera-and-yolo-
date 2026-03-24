@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking Confirmed</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 52px 44px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .tick { font-size: 64px; margin-bottom: 16px; }
+    h1 { font-size: 22px; color: #1a1a2e; margin-bottom: 10px; }
+    .info {
+      background: #f0f7ff;
+      border-radius: 10px;
+      padding: 18px;
+      margin: 24px 0;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.8;
+    }
+    .info strong { color: #2196f3; }
+    a.btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #2196f3;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: background .2s;
+    }
+    a.btn:hover { background: #1769aa; }
+    p.note { font-size: 12px; color: #aaa; margin-top: 18px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="tick">✅</div>
+    <h1>Appointment Confirmed!</h1>
+
+    <div class="info">
+      <strong>Doctor:</strong> {{ dentist }}<br/>
+      <strong>Date & Time:</strong> {{ date }}<br/>
+      <strong>Status:</strong> Saved to database
+    </div>
+
+    <a class="btn" href="/dentists">← Book Another</a>
+    <p class="note">Your appointment has been saved.<br/>
+       Check <code>data/appointments.ics</code> to add it to your calendar.</p>
+  </div>
+</body>
+</html>
